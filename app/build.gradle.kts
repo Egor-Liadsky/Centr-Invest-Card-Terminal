@@ -55,6 +55,9 @@ android {
 
 dependencies {
 
+    // Datastore
+    implementation(libs.androidx.datastore)
+
     // Navigation
     implementation(libs.decompose)
     implementation(libs.decompose.compose)

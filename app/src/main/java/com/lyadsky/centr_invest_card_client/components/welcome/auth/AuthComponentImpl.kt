@@ -8,5 +8,4 @@ class AuthComponentImpl(
     componentContext: ComponentContext
 ): BaseComponent<AuthState>(componentContext, AuthState()) {
 
-
 }

@@ -12,7 +12,7 @@ import org.koin.dsl.module
 fun initKoin(appDeclaration: KoinAppDeclaration = {}) =
     startKoin {
         appDeclaration()
-        modules(commonModule)
+        modules(commonModule, servicesModule)
     }
 
 val commonModule = module {

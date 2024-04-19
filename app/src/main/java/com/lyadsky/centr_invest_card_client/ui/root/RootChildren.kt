@@ -17,6 +17,7 @@ fun RootChildren(component: RootComponent, modifier: Modifier) {
     ) {
         when (val child = it.instance) {
             is RootComponent.Child.BottomNavigationChild -> BottomNavigationScreen(child.component)
+            else -> {}
         }
     }
 }

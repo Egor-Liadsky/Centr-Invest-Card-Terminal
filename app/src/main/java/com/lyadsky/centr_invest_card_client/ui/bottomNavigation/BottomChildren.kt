@@ -6,7 +6,7 @@ import com.arkivanov.decompose.extensions.compose.stack.Children
 import com.arkivanov.decompose.extensions.compose.stack.animation.fade
 import com.arkivanov.decompose.extensions.compose.stack.animation.stackAnimation
 import com.lyadsky.centr_invest_card_client.components.bottomNavigation.BottomNavigationComponent
-import com.lyadsky.centr_invest_card_client.ui.home.HomeScreen
+import com.lyadsky.centr_invest_card_client.ui.services.ServicesScreen
 import com.lyadsky.centr_invest_card_client.ui.settings.SettingsScreen
 
 @Composable
@@ -20,8 +20,9 @@ fun BottomNavigationChildren(
         animation = stackAnimation(fade())
     ) {
         when (val child = it.instance) {
-            is BottomNavigationComponent.Child.HomeChild -> HomeScreen(child.component)
+            is BottomNavigationComponent.Child.HomeChild -> ServicesScreen(child.component)
             is BottomNavigationComponent.Child.SettingsChild -> SettingsScreen(child.component)
+            is BottomNavigationComponent.Child.ServicesChild -> ServicesScreen(component = child.component)
         }
     }
 }

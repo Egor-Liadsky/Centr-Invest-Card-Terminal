@@ -8,11 +8,11 @@ import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.router.stack.popTo
 import com.arkivanov.decompose.value.Value
 import com.lyadsky.centr_invest_card_client.components.bottomNavigation.BottomNavigationComponent.Child
-import com.lyadsky.centr_invest_card_client.components.home.HomeComponentImpl
+import com.lyadsky.centr_invest_card_client.components.home.ServicesComponentImpl
 import com.lyadsky.centr_invest_card_client.components.settings.SettingsComponentImpl
 import kotlinx.serialization.Serializable
 
-class BottomNavigationComponentComponentImpl(
+class BottomNavigationComponentImpl(
     componentContext: ComponentContext,
 ) : BottomNavigationComponent, ComponentContext by componentContext {
 
@@ -22,7 +22,7 @@ class BottomNavigationComponentComponentImpl(
         childStack(
             source = navigation,
             serializer = Config.serializer(),
-            initialConfiguration = Config.Home,
+            initialConfiguration = Config.Services,
             childFactory = ::childFactory
         )
 
@@ -30,6 +30,7 @@ class BottomNavigationComponentComponentImpl(
         when (tab) {
             MainNavTab.HOME -> navigation.bringToFront(Config.Home)
             MainNavTab.SETTINGS -> navigation.bringToFront(Config.Settings)
+            MainNavTab.SERVICES -> navigation.bringToFront(Config.Services)
         }
     }
 
@@ -44,17 +45,23 @@ class BottomNavigationComponentComponentImpl(
         return when (config) {
             Config.Home -> homeComponent(componentContext)
             Config.Settings -> settingsComponent(componentContext)
+            Config.Services -> servicesComponent(componentContext)
         }
     }
 
     private fun homeComponent(componentContext: ComponentContext): BottomNavigationComponent.Child =
         Child.HomeChild(
-            HomeComponentImpl(componentContext = componentContext)
+            ServicesComponentImpl(componentContext = componentContext)
         )
 
     private fun settingsComponent(componentContext: ComponentContext): BottomNavigationComponent.Child =
         Child.SettingsChild(
             SettingsComponentImpl(componentContext = componentContext)
+        )
+
+    private fun servicesComponent(componentContext: ComponentContext): BottomNavigationComponent.Child =
+        Child.ServicesChild(
+            ServicesComponentImpl(componentContext = componentContext)
         )
 
 
@@ -66,5 +73,8 @@ class BottomNavigationComponentComponentImpl(
 
         @Serializable
         data object Settings : Config
+
+        @Serializable
+        data object Services : Config
     }
 }

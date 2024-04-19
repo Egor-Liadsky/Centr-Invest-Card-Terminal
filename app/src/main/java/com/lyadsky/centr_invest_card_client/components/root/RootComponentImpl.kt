@@ -7,7 +7,7 @@ import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.router.stack.pop
 import com.arkivanov.decompose.value.Value
 import com.lyadsky.centr_invest_card_client.components.BaseComponent
-import com.lyadsky.centr_invest_card_client.components.bottomNavigation.BottomNavigationComponentComponentImpl
+import com.lyadsky.centr_invest_card_client.components.bottomNavigation.BottomNavigationComponentImpl
 import kotlinx.serialization.Serializable
 import org.koin.core.component.KoinComponent
 
@@ -39,7 +39,7 @@ class RootComponentImpl(
 
     private fun bottomNavigationComponent(componentContext: ComponentContext): RootComponent.Child =
         RootComponent.Child.BottomNavigationChild(
-            BottomNavigationComponentComponentImpl(componentContext = componentContext)
+            BottomNavigationComponentImpl(componentContext = componentContext)
         )
 
     @Serializable

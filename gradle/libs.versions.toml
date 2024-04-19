@@ -16,6 +16,9 @@ essenty = "2.0.0-alpha07"
 material3 = "1.2.1"
 material = "1.6.5"
 
+# Proto DataStore
+protoDataStore = "1.0.0"
+
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -33,6 +36,8 @@ material3 = { module = "androidx.compose.material3:material3", version.ref = "ma
 material = { module = "androidx.compose.material:material", version.ref = "material" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 
+# Proto DataStore
+androidx-datastore = { group = "androidx.datastore", name = "datastore", version.ref = "protoDataStore" }
 
 # Decompose
 decompose = { group = "com.arkivanov.decompose", name = "decompose", version.ref = "decompose" }
